@@ -6,7 +6,7 @@ services:
   #service name space, can set a prefix name in an .env file with COMPOSE_PROJECT_NAME=
   website:
     restart: always
-    build: ./ArtistSongProfile
+    build: ./songprofile
     expose:
       - "8000"
     #cmd from DockerFile, with reload flag added for dev - will auto update with local changes, removed in Dockerfile for prod
@@ -22,7 +22,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - /ArtistSongProfile/static
+      - /songprofile/static
     #volumes_from: NOT SUPPORTED//NEEDED ANYMORE?
     #  - website
     depends_on:
