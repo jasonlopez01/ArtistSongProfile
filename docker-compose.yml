@@ -1,0 +1,29 @@
+#Example: https://gist.github.com/ju2wheels/1885539d63dbcfb20729
+#Docs: https://docs.docker.com/compose/compose-file/#labels
+version: '3'
+
+services:
+  #service name space, can set a prefix name in an .env file with COMPOSE_PROJECT_NAME=
+  website:
+    restart: always
+    build: ./SongProfile
+    expose:
+      - "8000"
+    #cmd from DockerFile, with reload flag added for dev - will auto update with local changes, removed in Dockerfile for prod
+    command: >
+      gunicorn -b 0.0.0.0:8000
+        --log-level=debug
+      	--log-file=-
+        "app:create_app()"
+
+  nginx:
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - /SongProfile/static
+    #volumes_from: NOT SUPPORTED//NEEDED ANYMORE?
+    #  - website
+    depends_on:
+      - website

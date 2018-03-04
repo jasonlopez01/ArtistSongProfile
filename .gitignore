@@ -1,0 +1,8 @@
+# Byte-compiled (.pyc), optimized (.pyo), and win DLL files (.pyd)
+*.py[cod]
+
+#pycharm
+.idea/
+
+#instance config settings for prod
+instance/settings.py

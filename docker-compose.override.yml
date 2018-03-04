@@ -1,0 +1,23 @@
+#Example: https://gist.github.com/ju2wheels/1885539d63dbcfb20729
+#Docs: https://docs.docker.com/compose/compose-file/#labels
+version: '3'
+
+services:
+  #service name space, can set a prefix name in an .env file with COMPOSE_PROJECT_NAME=
+  website:
+    build: ./SongProfile
+    #host port : container port (single val - docker will random assign port on host)
+    ports:
+      - "8000:8000"
+    #cmd from DockerFile, with reload flag added for dev - will auto update with local changes, removed in Dockerfile for prod
+    command: >
+      gunicorn -b 0.0.0.0:8000
+        --access-logfile -
+        --reload
+        "app:create_app()"
+    environment:
+    #env var to allow output sent to terminal
+      PYTHONUNBUFFERED: 'true'
+    #mounts current dir to a volume in container, allow edits in local files w/out rebuilding img
+    volumes:
+      - "./SongProfile:/SongProfile"
