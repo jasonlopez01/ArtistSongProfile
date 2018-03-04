@@ -3,7 +3,7 @@ FROM python:2.7-slim
 MAINTAINER Jason Lopez <jasonlopez01@gmail.com>
 
 #ENV sets var for path
-ENV INSTALL_PATH /SongProfile
+ENV INSTALL_PATH /ArtistSongProfile
 RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH

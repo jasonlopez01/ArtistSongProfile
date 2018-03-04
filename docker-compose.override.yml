@@ -5,7 +5,7 @@ version: '3'
 services:
   #service name space, can set a prefix name in an .env file with COMPOSE_PROJECT_NAME=
   website:
-    build: ./SongProfile
+    build: ./ArtistSongProfile
     #host port : container port (single val - docker will random assign port on host)
     ports:
       - "8000:8000"
@@ -20,4 +20,4 @@ services:
       PYTHONUNBUFFERED: 'true'
     #mounts current dir to a volume in container, allow edits in local files w/out rebuilding img
     volumes:
-      - "./SongProfile:/SongProfile"
+      - "./ArtistSongProfile:/ArtistSongProfile"
