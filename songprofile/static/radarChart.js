@@ -91,7 +91,7 @@ function RadarChart(id, data, options) {
 	//Initiate the radar chart SVG
 	var svg = d3.select(id).append("svg")
 			.attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
-			.attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
+			.attr("height", 250)
 			.attr("class", "radar"+id);
 
 	var legendsvg = d3.select(".radarLegend").append("svg")
@@ -413,8 +413,8 @@ var radarChartOptions = {
   levels: 5,
   roundStrokes: true,
   color: d3.scale.category20(), //color,
-  axisName: "reason",
-  areaName: "device",
+  axisName: "measure",
+  areaName: "track",
   value: "value",
   uri: "uri"
 };

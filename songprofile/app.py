@@ -7,9 +7,9 @@ import pandas as pd
 import math
 #import pprint
 
-# TODO: docker-ize
 # TODO: add explanation, more tips on interactivity, genres list?, similar artists?, something about avg scores or area size, consistent artist????
 # TODO: replace acoutinceess or instrumentalness (even work? check grimes...weird), with a tempo -> speed measure
+# TODO: increase size of the chart itself, maybe just radius or decrease margins, for mobile mostly
 
 def find_icon_img(images):
     if not images or len(images) == 0:
@@ -75,15 +75,15 @@ def create_app():
         featuresDF = pd.DataFrame(sp.audio_features(top_track_ids.keys()))
         featuresDF['name'] = featuresDF['id'].map(top_track_ids)
         featuresDF['loudness score'] = featuresDF['loudness'].apply(convert_dB)
-        results = [] #[{'key':'song', 'values':[{'reason':'feature', 'device':'song', 'value':2}]
+        results = [] #[{'key':'track', 'values':[{'reason':'feature', 'track':'song', 'value':2}]
         for i, r in featuresDF.iterrows():
             item = dict()
             item['key'] = r['name']
-            item['values'] = [{'device': r['name'], 'reason': k, 'value': v, 'uri':r['uri']}
+            item['values'] = [{'track': r['name'], 'measure': k, 'value': v, 'uri':r['uri']}
                               for k, v in r[['acousticness', 'instrumentalness', 'danceability', 'energy', 'valence', 'loudness score']].to_dict().iteritems()]
             item['uri'] = r['uri']
             #if desired, ordered dict to control axis placement
-            # item['values'] = [OrderedDict([('device', r['name']), ('reason', k), ('value', v)])
+            # item['values'] = [OrderedDict([('track', r['name']), ('measure', k), ('value', v)])
             #                   for k, v in r[['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness','valence']].to_dict().iteritems()]
             results.append(item)
         #pp = pprint.PrettyPrinter(indent=4)
