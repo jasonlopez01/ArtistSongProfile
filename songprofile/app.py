@@ -121,6 +121,3 @@ def create_app():
         return json.jsonify(features=results)
 
     return app
-
-app = create_app()
-app.run()
