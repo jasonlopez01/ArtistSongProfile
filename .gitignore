@@ -5,4 +5,4 @@
 .idea/
 
 #instance config settings for prod
-instance/settings.py
+/songprofile/instance/settings.py

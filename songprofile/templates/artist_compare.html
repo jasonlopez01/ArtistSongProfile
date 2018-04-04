@@ -37,11 +37,20 @@
                     <input class="input-lg form-control" type="search" placeholder="Search for an Artist" id="artist_input">
                     <i class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></i>
                 </div>
-                <h3 id="artist_label">Tune-Yards</h3>
-                <div id="player-div"></div>
-                <div id="artist-img-div">
-                    <img src="https://i.scdn.co/image/7f9e8950f7171b1ac27f4ca9b734f42dd9f243d9" class="artist-img">
+                <div id="player-div">
                 </div>
+                <ul id="artist-list">
+                    <li id="0asVlqTLu3TimnYVyY5Jxi" class="ui-menu-item">
+                        <div class="ui-menu-item-wrapper" id="ui-id-33" tabindex="-1">
+                            <img src="https://i.scdn.co/image/e69f2083a9a0012f0bb81d9dc2c8d7c1f6ba806a" class="circular artist-icon">Tune-Yards</div>
+                    </li>
+                    <li id="7bcbShaqKdcyjnmv4Ix8j6" class="ui-menu-item"><div class="ui-menu-item-wrapper" id="ui-id-28" tabindex="-1">
+                        <img src="https://i.scdn.co/image/a2a16a6f5c99298fdfcc4b1a07e15bd712df8cff" class="circular artist-icon">St. Vincent</div>
+                    </li>
+                    <li id="5cMgGlA1xGyeAB2ctYlRdZ" class="ui-menu-item"><div class="ui-menu-item-wrapper" id="ui-id-17" tabindex="-1">
+                        <img src="https://i.scdn.co/image/2700f92751cd409c0b8eef33f8d4ede262ed157f" class="circular artist-icon">Gang Starr</div>
+                    </li>
+                </ul>
             </div>
 
             <div class="col-md-2 col-md-offset-1">
@@ -49,6 +58,7 @@
                     <div class="radarLegend"></div>
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div>
                     <div class="radarChart"></div>
@@ -57,7 +67,7 @@
         </div>
     </div>
     <script src="{{url_for('static', filename='radarChart.js')}}"></script>
-    <script src="{{url_for('static', filename='single_artist.js')}}"></script>
+    <script src="{{url_for('static', filename='artist_compare.js')}}"></script>
 </body>
 
 </html>

@@ -12,6 +12,10 @@ i{
     cursor:pointer;
 }
 
+.ui-menu-item{
+    list-style-type:none
+}
+
 .ui-menu-item:hover, .ui-menu-item:focus{
     background-color:#5b5b5c;
     cursor:pointer;
@@ -43,6 +47,10 @@ i{
 
 .ui-helper-hidden-accessible {
     display:none;
+}
+
+#artist-list{
+    padding-left:0px;
 }
 
 .artist-img{
@@ -98,4 +106,12 @@ text.label, text.legend{
   background-clip: padding-box;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
+}
+
+.spotify-player{
+    display: none;
+}
+
+ul{
+  list-style-type: none;
 }
